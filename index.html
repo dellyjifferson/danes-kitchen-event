@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dane's Kitchen & Event Design</title>
+  <meta name="description" content="Dane's Kitchen & Event Design – Pâtisserie, cuisine et design événementiel sur mesure." />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    :root {
+      --primary: #000000;
+      --accent: #b11226;
+      --light: #ffffff;
+      --gray: #f4f4f4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--light);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #fff, #f7f7f7);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--gray);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: var(--light);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Dane's Kitchen & Event Design logo" />
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Dane's Kitchen & Event Design</h1>
+    <p>
+      Une entreprise passionnée par la pâtisserie, la cuisine et la création
+      d’événements élégants et mémorables.
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>À propos</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Dane's Kitchen & Event Design est spécialisée dans la préparation de
+      délices faits maison et dans l’organisation d’événements sur mesure.
+      Chaque création est pensée avec soin, créativité et amour du détail.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Nos services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Pâtisserie</h3>
+        <p>Gâteaux personnalisés, desserts élégants et créations sucrées.</p>
+      </div>
+      <div class="card">
+        <h3>Cuisine</h3>
+        <p>Plats savoureux pour événements privés et professionnels.</p>
+      </div>
+      <div class="card">
+        <h3>Event Planning</h3>
+        <p>Organisation complète de vos événements : mariages, fêtes, anniversaires.</p>
+      </div>
+      <div class="card">
+        <h3>Event Design</h3>
+        <p>Décoration, ambiance et mise en scène élégante et moderne.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>📞 Téléphone : +509 3331-5722</p>
+    <p>📧 Email : contact@daneskitchen.com</p>
+    <p>📍 Disponible pour vos événements spéciaux</p>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Dane's Kitchen & Event Design – Tous droits réservés</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
