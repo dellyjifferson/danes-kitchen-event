@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dane's Kitchen & Event Design - Catalogue</title>
+    <meta name="description"
+        content="Découvrez nos réalisations : gâteaux, événements et décorations par Dane's Kitchen & Event Design." />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Dane's Kitchen & Event Design logo" />
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="catalog.html">Catalogue</a>
+            <a href="index.html#about">À propos</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="carousel-container">
+        <div class="carousel-slide">
+            <img src="images/project_cake.png" alt="Gâteau de mariage">
+            <img src="images/project_event.png" alt="Décoration événementielle">
+            <img src="images/project_catering.png" alt="Service traiteur">
+        </div>
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <button class="carousel-btn next-btn">&#10095;</button>
+    </section>
+
+    <section id="projects">
+        <h2>Nos Réalisations</h2>
+        <div class="project-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card fade-in">
+                <img src="images/project_cake.png" alt="Wedding Cake Luxueux">
+                <div class="project-info">
+                    <h3>Wedding Cake Luxueux</h3>
+                    <p>Un gâteau à trois étages orné de fleurs en sucre faites à la main, parfait pour un mariage
+                        élégant.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card fade-in">
+                <img src="images/project_catering.png" alt="Buffet Gourmet">
+                <div class="project-info">
+                    <h3>Buffet Gourmet</h3>
+                    <p>Une sélection de mets raffinés pour ravir les papilles de vos invités lors de vos réceptions.</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card fade-in">
+                <img src="images/project_event.png" alt="Décoration Féérique">
+                <div class="project-info">
+                    <h3>Décoration Féérique</h3>
+                    <p>Mise en scène complète avec éclairage d'ambiance et arrangements floraux spectaculaires.</p>
+                </div>
+            </div>
+
+            <!-- Project 4 (Duplicate for demo grid) -->
+            <div class="project-card fade-in">
+                <img src="images/project_cake.png" alt="Anniversary Cake">
+                <div class="project-info">
+                    <h3>Gâteau d'Anniversaire</h3>
+                    <p>Création sur mesure pour célébrer vos moments spéciaux avec douceur.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Vous avez un projet ?</h2>
+        <p>Contactez-nous pour réaliser vos rêves.</p>
+        <p> Téléphone : +509 3331-5722</p>
+        <p> Email : <a href="mailto:daneskitchenevent@gmail.com">daneskitchenevent@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Dane's Kitchen & Event Design – Tous droits réservés</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
