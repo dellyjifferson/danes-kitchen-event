@@ -108,10 +108,12 @@ footer {
 /* Carousel Styles */
 .carousel-container {
   position: relative;
-  max-width: 100%;
+  max-width: 1100px;
   height: 400px;
   overflow: hidden;
-  margin-top: 0;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 12px;
 }
 
 .carousel-slide {
@@ -126,6 +128,7 @@ footer {
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
+  display: block;
 }
 
 .carousel-btn {
