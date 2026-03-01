@@ -97,6 +97,22 @@ section h2 {
   margin-bottom: 0.8rem;
 }
 
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+}
+
 footer {
   background: var(--primary);
   color: var(--light);
