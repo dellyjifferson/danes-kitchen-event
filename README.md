@@ -139,6 +139,4 @@ cd danes-kitchen-event
 
 &copy; 2026 **Dane's Kitchen & Event Design** — Tous droits réservés
 
-_Fait avec ❤️ et une touche d'élégance_
-
 </div>
