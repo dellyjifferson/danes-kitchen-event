@@ -110,10 +110,8 @@ danes-kitchen-event/
 
 <div align="center">
 
-| 📱 Téléphone | 📧 Email |
-|:---:|:---:|
-| `+509 3331-5722` | [daneskitchenevent@gmail.com](mailto:daneskitchenevent@gmail.com) |
-| `+509 3739-3660` | _Réponse sous 24h_ |
+| 📧 Email |
+| [daneskitchenevent@gmail.com](mailto:daneskitchenevent@gmail.com) |
 
 **Disponible pour vos événements spéciaux — sur mesure, avec amour.**
 
