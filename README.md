@@ -125,7 +125,7 @@ danes-kitchen-event/
 
 ```bash
 # Cloner le dépôt
-git clone <url-du-repo>
+git clone https://github.com/dellyjifferson/danes-kitchen-event.git
 cd danes-kitchen-event
 
 # Ouvrir dans le navigateur
