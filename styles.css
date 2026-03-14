@@ -180,9 +180,33 @@ footer {
   gap: 0.75rem;
 }
 
-.footer-contact a {
-  width: fit-content;
-  font-weight: 600;
+.footer-socials {
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.footer-socials .contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-socials .contact-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.24);
+}
+
+.footer-socials .contact-icon svg {
+  width: 30px;
+  height: 30px;
 }
 
 .footer-bottom {
@@ -361,5 +385,9 @@ footer {
 
   .footer-brand h2 {
     font-size: 1.6rem;
+  }
+
+  .footer-socials {
+    justify-content: center;
   }
 }
