@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const darkMode = theme === 'dark';
         document.body.classList.toggle('dark-theme', darkMode);
         if (themeToggle) {
-            themeToggle.textContent = darkMode ? 'Mode clair' : 'Mode sombre';
+            themeToggle.textContent = darkMode ? '☀' : '🌙';
             themeToggle.setAttribute('aria-label', darkMode ? 'Activer le mode clair' : 'Activer le mode sombre');
+            themeToggle.setAttribute('title', darkMode ? 'Mode clair' : 'Mode sombre');
         }
     }
 
