@@ -20,7 +20,7 @@
 
 **Dane's Kitchen & Event Design** est une entreprise artisanale haïtienne fondée sur la passion de la gastronomie et la beauté des célébrations. Nous transformons chaque moment en souvenir inoubliable, en alliant savoir-faire culinaire raffiné et design événementiel sur mesure.
 
-Que ce soit pour un mariage somptueux, une graduation, un anniversaire chaleureux ou une réception professionnelle, **Dane's** apporte une touche d'élégance unique à chaque événement.
+Que ce soit pour un mariage somptueux, une graduation, un baptême, un anniversaire chaleureux ou une réception professionnelle, **Dane's** apporte une touche d'élégance unique à chaque événement.
 
 ---
 
