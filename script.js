@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Theme Toggle Logic ---
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function applyTheme(theme) {
+        const darkMode = theme === 'dark';
+        document.body.classList.toggle('dark-theme', darkMode);
+        if (themeToggle) {
+            themeToggle.textContent = darkMode ? 'Mode clair' : 'Mode sombre';
+            themeToggle.setAttribute('aria-label', darkMode ? 'Activer le mode clair' : 'Activer le mode sombre');
+        }
+    }
+
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.contains('dark-theme');
+            const nextTheme = isDark ? 'light' : 'dark';
+            applyTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+    }
     
     // --- Mobile Menu Logic ---
     const hamburger = document.querySelector('.hamburger');
