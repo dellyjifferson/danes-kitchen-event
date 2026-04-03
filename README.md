@@ -23,7 +23,7 @@
 Que ce soit pour un mariage somptueux, une graduation, un baptême, un anniversaire chaleureux ou une réception professionnelle, **Dane's** apporte une touche d'élégance unique à chaque événement.
 
 ## La cheffe responsable de Dane's Kitchen and Event
-
+Rose-Danie JEAN-NOEL
 
 ---
 
