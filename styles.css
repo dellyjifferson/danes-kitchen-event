@@ -342,11 +342,32 @@ footer {
 
 .catalog-img {
   height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 72px;
   position: relative;
+  overflow: hidden;
+}
+
+.catalog-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.catalog-card:hover .catalog-img img {
+  transform: scale(1.08);
+}
+
+.catalog-img-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.catalog-card:hover .catalog-img-overlay {
+  opacity: 0.15;
 }
 
 .catalog-badge {
