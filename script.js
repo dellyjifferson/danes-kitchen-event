@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Theme Toggle Logic ---
     const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -8,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const darkMode = theme === 'dark';
         document.body.classList.toggle('dark-theme', darkMode);
         if (themeToggle) {
-            themeToggle.textContent = darkMode ? '☀' : '🌙';
+            if (themeIcon) {
+                themeIcon.classList.toggle('bi-moon-stars-fill', !darkMode);
+                themeIcon.classList.toggle('bi-brightness-high-fill', darkMode);
+            }
             themeToggle.setAttribute('aria-label', darkMode ? 'Activer le mode clair' : 'Activer le mode sombre');
             themeToggle.setAttribute('title', darkMode ? 'Mode clair' : 'Mode sombre');
         }
