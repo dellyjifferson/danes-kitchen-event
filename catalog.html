@@ -52,84 +52,21 @@
         <button class="carousel-btn next-btn">&#10095;</button>
     </section>
 
-    <section id="projects">
-        <h2>Nos Réalisations</h2>
-        <div class="project-grid">
-
-            <!-- Project 1 -->
-            <div class="project-card fade-in">
-                <img src="images/project_cake.png" alt="Gâteau de mariage luxueux à trois étages avec fleurs en sucre" loading="lazy">
-                <div class="project-info">
-                    <h3>Wedding Cake Luxueux</h3>
-                    <p>Un gâteau à trois étages orné de fleurs en sucre faites à la main, parfait pour un mariage
-                        élégant.</p>
-                </div>
+    <section class="catalog-section">
+        <div class="catalog-header">
+            <div>
+                <div class="section-label">Catalogue</div>
+                <h2 class="section-title" style="margin-bottom:0;">Nos <em>réalisations</em></h2>
             </div>
-
-            <!-- Project 2 -->
-            <div class="project-card fade-in">
-                <img src="images/project_catering.png" alt="Buffet gourmet avec sélection de mets raffinés" loading="lazy">
-                <div class="project-info">
-                    <h3>Buffet Gourmet</h3>
-                    <p>Une sélection de mets raffinés pour ravir les papilles de vos invités lors de vos réceptions.</p>
-                </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterCatalog('all',this)">Tout</button>
+                <button class="filter-tab" onclick="filterCatalog('cuisine',this)">Cuisine</button>
+                <button class="filter-tab" onclick="filterCatalog('patisserie',this)">Pâtisserie</button>
+                <button class="filter-tab" onclick="filterCatalog('fleurs',this)">Fleurs</button>
+                <button class="filter-tab" onclick="filterCatalog('evenement',this)">Événements</button>
             </div>
-
-            <!-- Project 3 -->
-            <div class="project-card fade-in">
-                <img src="images/project_event.png" alt="Décoration féérique avec éclairage d'ambiance" loading="lazy">
-                <div class="project-info">
-                    <h3>Décoration Féérique</h3>
-                    <p>Mise en scène complète avec éclairage d'ambiance et arrangements floraux spectaculaires.</p>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card fade-in">
-                <img src="images/gateau_anniversaire1.png" alt="Gâteau d'anniversaire élégant" loading="lazy">
-                <div class="project-info">
-                    <h3>Gâteau d'Anniversaire</h3>
-                    <p>Création sur mesure pour célébrer vos moments spéciaux avec douceur.</p>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-card fade-in">
-                <img src="images/danes_savor1.png" alt="Dane's Savor Cremas, boisson crémeuse haïtienne traditionnelle" loading="lazy">
-                <div class="project-info">
-                    <h3>Dane's Savor Cremas</h3>
-                    <p>Un authentique Cremas fait maison, préparé avec soin à partir de lait de coco fraîchement pressé, de lait onctueux, d'épices douces et de sucre. Cette boisson crémeuse est sublimée par le caractère unique du pur clairin haïtien.</p>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div class="project-card fade-in">
-                <img src="images/pate.jpeg" alt="Pâté fait maison avec pâte brisée et viandes de bœuf et poulet" loading="lazy">
-                <div class="project-info">
-                    <h3>Pâté</h3>
-                    <p>Un pâté fait maison (avec de la pâte brisée), préparé avec soin à partir de viandes de bœuf et de poulet, aromatisées avec des épices locales.</p>
-                </div>
-            </div>
-
-            <!-- Project 7 -->
-            <div class="project-card fade-in">
-                <img src="images/R.jpeg" alt="Arrangement floral frais et élégant" loading="lazy">
-                <div class="project-info">
-                    <h3>Fleurs</h3>
-                    <p>Un arrangement floral fait maison, préparé avec soin à partir de fleurs fraîches et de verdure.</p>
-                </div>
-            </div>
-
-            <!-- Project 8 -->
-            <div class="project-card fade-in">
-                <img src="images/gateau_anniversaire_enfant.png" alt="Gâteau d'anniversaire pour enfant avec décorations colorées" loading="lazy">
-                <div class="project-info">
-                    <h3>Gâteau d'anniversaire pour enfant</h3>
-                    <p>Un gâteau à trois étages orné de fleurs en sucre faites à la main, parfait pour une célébration enfantine.</p>
-                </div>
-            </div>
-
         </div>
+        <div class="catalog-grid" id="catalogGrid"></div>
     </section>
 
     <footer class="site-footer">
@@ -190,6 +127,124 @@
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     <script src="script.js"></script>
+
+    <!-- Catalog Script -->
+    <script>
+        // Catalog items data
+        const catalogItems = [
+            {id: 1, cat: 'cuisine', emoji: '🍲', badge: null, name: 'Plat cuisiné maison', desc: 'Préparé avec des produits frais, livré prêt à déguster. Saveurs authentiques et généreuses.', price: 'À partir de 500 HTG', color: '#E8F0E4'},
+            {id: 2, cat: 'cuisine', emoji: '🥘', badge: 'Populaire', name: 'Dane\'s Savor Cremas', desc: 'L\'authentique boisson haïtienne artisanale. Préparé avec du lait de coco frais, des épices et du clairin.', price: 'À partir de 350 HTG', color: '#FDE8E4'},
+            {id: 3, cat: 'cuisine', emoji: '🥧', badge: null, name: 'Pâté Maison', desc: 'Pâté avec pâte brisée, préparé avec soin à base de viandes de bœuf et de poulet et épices locales.', price: 'À partir de 400 HTG', color: '#FFF0E0'},
+            {id: 4, cat: 'patisserie', emoji: '🎂', badge: 'Populaire', name: 'Gâteau de célébration', desc: 'Personnalisé selon vos désirs — thème, couleurs et saveurs. Parfait pour mariages, anniversaires et occasions spéciales.', price: 'Sur devis', color: '#FDE8E4'},
+            {id: 5, cat: 'patisserie', emoji: '🧁', badge: null, name: 'Cupcakes artisanaux', desc: 'Assortiment personnalisé, parfaits pour tout événement. Garnitures et décorations sur mesure.', price: 'À partir de 150 HTG', color: '#FEF0F8'},
+            {id: 6, cat: 'patisserie', emoji: '🍰', badge: null, name: 'Table de desserts', desc: 'Buffet gourmand entièrement personnalisé pour vos fêtes. Une variété de douceurs qui impressionnent.', price: 'Sur devis', color: '#FFF0E0'},
+            {id: 7, cat: 'fleurs', emoji: '💐', badge: 'Bestseller', name: 'Bouquet élégant', desc: 'Composition florale sur mesure, naturelle ou artificielle. Pour toutes occasions.', price: 'Sur devis', color: '#E4EBE2'},
+            {id: 8, cat: 'fleurs', emoji: '🌹', badge: null, name: 'Centre de table floral', desc: 'Arrangement raffiné pour sublimer vos tables de réception. Créations uniques.', price: 'Sur devis', color: '#F0E4F0'},
+            {id: 9, cat: 'fleurs', emoji: '💍', badge: 'Mariage', name: 'Pack floral mariage', desc: 'Bouquets, boutonnières, centres de table et arche fleurie. Une décoration complète pour votre journée.', price: 'Sur devis', color: '#F0E4F0'},
+            {id: 10, cat: 'evenement', emoji: '🎊', badge: 'Premium', name: 'Organisation complète', desc: 'Conception, décoration et coordination de votre événement de A à Z. Confiez-nous votre journée spéciale.', price: 'Sur devis', color: '#E4EAF5'},
+            {id: 11, cat: 'evenement', emoji: '🕯️', badge: null, name: 'Décoration sur mesure', desc: 'Mise en scène de vos espaces pour des ambiances uniques. Thèmes, éclairage et accessoires inclus.', price: 'À partir de 2000 HTG', color: '#E4EAF5'},
+            {id: 12, cat: 'evenement', emoji: '🎈', badge: null, name: 'Kits anniversaire', desc: 'Pack décoration complète pour anniversaires — ballons, centres de table et éléments thématiques.', price: 'À partir de 1500 HTG', color: '#FFF5E0'}
+        ];
+
+        const catLabels = {
+            cuisine: '🍴 Cuisine',
+            patisserie: '🍰 Pâtisserie',
+            fleurs: '🌸 Fleurs',
+            evenement: '🎊 Événement'
+        };
+
+        function renderCatalog(filter = 'all') {
+            const grid = document.getElementById('catalogGrid');
+            const filtered = filter === 'all' ? catalogItems : catalogItems.filter(i => i.cat === filter);
+            grid.innerHTML = filtered.map(item => `
+                <div class="catalog-card fade-in">
+                    <div class="catalog-img" style="background: ${item.color};">
+                        ${item.emoji}
+                        ${item.badge ? `<div class="catalog-badge">${item.badge}</div>` : ''}
+                    </div>
+                    <div class="catalog-body">
+                        <div class="catalog-cat">${catLabels[item.cat] || item.cat}</div>
+                        <div class="catalog-name">${item.name}</div>
+                        <div class="catalog-note">${item.desc}</div>
+                        <div class="catalog-footer">
+                            <div class="catalog-price">${item.price}</div>
+                            <button class="btn-order" onclick="openOrder(${item.id})">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCatalog(cat, el) {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            renderCatalog(cat);
+        }
+
+        function openOrder(itemId) {
+            const modal = document.getElementById('orderModal');
+            const orderFormInner = document.getElementById('orderFormInner');
+            const orderSuccess = document.getElementById('orderSuccess');
+            const orderItemName = document.getElementById('orderItemName');
+            const orderItemCat = document.getElementById('orderItemCat');
+
+            orderSuccess.classList.remove('show');
+            orderFormInner.style.display = 'block';
+
+            if (itemId) {
+                const item = catalogItems.find(i => i.id === itemId);
+                orderItemName.textContent = item.name;
+                orderItemCat.textContent = (catLabels[item.cat] || item.cat) + ' — ' + item.price;
+            } else {
+                orderItemName.textContent = 'Passer une commande';
+                orderItemCat.textContent = 'Complétez le formulaire ci-dessous';
+            }
+            modal.classList.add('open');
+        }
+
+        function closeOrder() {
+            document.getElementById('orderModal').classList.remove('open');
+        }
+
+        function submitOrder() {
+            document.getElementById('orderFormInner').style.display = 'none';
+            document.getElementById('orderSuccess').classList.add('show');
+            setTimeout(closeOrder, 2000);
+        }
+
+        // Close modal on overlay click
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) closeOrder();
+        });
+
+        // Initial render
+        renderCatalog('all');
+    </script>
+
+    <!-- ORDER MODAL -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeOrder()">&times;</button>
+            <div id="orderSuccess" class="success-msg">
+                <div class="success-icon">🎉</div>
+                <div class="success-title">Commande reçue !</div>
+                <div class="success-text">Merci pour votre commande. Nous vous contacterons sous 24h pour confirmer les détails.</div>
+            </div>
+            <div id="orderFormInner">
+                <div class="modal-title" id="orderItemName">Passer une commande</div>
+                <div class="modal-sub" id="orderItemCat">Complétez le formulaire ci-dessous</div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">Prénom</label><input class="form-input" type="text" placeholder="Marie"></div>
+                    <div class="form-group"><label class="form-label">Nom</label><input class="form-input" type="text" placeholder="Dupont"></div>
+                </div>
+                <div class="form-group"><label class="form-label">Téléphone / WhatsApp</label><input class="form-input" type="tel" placeholder="+509 xxxx xxxx"></div>
+                <div class="form-group"><label class="form-label">Date souhaitée</label><input class="form-input" type="date"></div>
+                <div class="form-group"><label class="form-label">Quantité / Nombre de personnes</label><input class="form-input" type="number" min="1" value="1"></div>
+                <div class="form-group"><label class="form-label">Personnalisation & détails</label><textarea class="form-textarea" placeholder="Saveurs, couleurs, allergies, thème..."></textarea></div>
+                <button class="submit-btn" onclick="submitOrder()">Envoyer ma commande</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 
