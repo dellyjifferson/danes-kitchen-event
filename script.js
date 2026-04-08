@@ -62,8 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = document.querySelectorAll('.carousel-slide img');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
+        const indicatorsContainer = document.querySelector('.carousel-indicators');
+        const overlayTitle = document.getElementById('carousel-title');
+        const overlayDesc = document.getElementById('carousel-desc');
+
         let currentSlide = 0;
         const totalSlides = slides.length;
+
+        // Slide data with titles and descriptions
+        const slideData = [
+            { title: 'Gâteau de mariage', desc: 'Création élégante pour votre journée spéciale' },
+            { title: 'Décoration événementielle', desc: 'Transformons vos espaces en univers magiques' },
+            { title: 'Buffet Gourmet', desc: 'Une expérience culinaire raffinée' },
+            { title: 'Dane\'s Savor Cremas', desc: 'L\'authentique boisson haïtienne artisanale' },
+            { title: 'Gâteau d\'anniversaire enfant', desc: 'Magie et douceur pour les petits' },
+            { title: 'Gâteau d\'anniversaire', desc: 'Célébrez vos moments avec élégance' },
+            { title: 'Pâté Maison', desc: 'Savoureux pâté aux épices locales' },
+            { title: 'Arrangements Floraux', desc: 'Fleurs fraîches pour chaque occasion' },
+            { title: 'Cornets Sucrés', desc: 'Délices gourmands dans chaque cornet' }
+        ];
 
         function showSlide(index) {
             // Loop back if out of bounds
@@ -72,6 +89,36 @@ document.addEventListener('DOMContentLoaded', () => {
             else currentSlide = index;
 
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update overlay text
+            if (overlayTitle && slideData[currentSlide]) {
+                overlayTitle.textContent = slideData[currentSlide].title;
+                if (overlayDesc) {
+                    overlayDesc.textContent = slideData[currentSlide].desc;
+                }
+            }
+
+            // Update indicators
+            if (indicatorsContainer) {
+                const indicators = indicatorsContainer.querySelectorAll('.indicator');
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === currentSlide);
+                });
+            }
+        }
+
+        // Create indicators
+        if (indicatorsContainer) {
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => {
+                    showSlide(i);
+                    resetAutoPlay();
+                });
+                indicatorsContainer.appendChild(indicator);
+            }
         }
 
         // Auto play (every 5 seconds)
@@ -99,6 +146,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 showSlide(currentSlide - 1);
                 resetAutoPlay();
             });
+        }
+
+        // Pause auto-play on hover
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+            carouselWrapper.addEventListener('mouseleave', () => {
+                autoPlayInterval = setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 5000);
+            });
+        }
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        slidesContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slidesContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    showSlide(currentSlide + 1); // Swipe left = next
+                } else {
+                    showSlide(currentSlide - 1); // Swipe right = prev
+                }
+                resetAutoPlay();
+            }
         }
     }
 
