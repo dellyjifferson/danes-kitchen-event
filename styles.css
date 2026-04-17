@@ -127,6 +127,12 @@ section h2 {
   line-height: 1;
 }
 
+.service-title-icon {
+  margin-right: 0.45rem;
+  font-size: 1rem;
+  vertical-align: -0.06em;
+}
+
 .theme-toggle {
   margin-left: 1.5rem;
   width: 38px;
