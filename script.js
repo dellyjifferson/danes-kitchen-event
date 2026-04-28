@@ -34,6 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('nav');
 
     if (hamburger && nav) {
+        // Auto-open menu on catalog page
+        if (window.location.pathname.includes('catalog.html')) {
+            hamburger.classList.add('active');
+            nav.classList.add('active');
+        }
+
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
