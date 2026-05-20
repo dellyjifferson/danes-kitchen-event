@@ -189,6 +189,11 @@
             const orderItemName = document.getElementById('orderItemName');
             const orderItemCat = document.getElementById('orderItemCat');
 
+            if (!modal || !orderFormInner || !orderSuccess || !orderItemName || !orderItemCat) {
+                console.error('Order modal is not ready yet.');
+                return;
+            }
+
             orderSuccess.classList.remove('show');
             orderFormInner.style.display = 'block';
 
@@ -204,7 +209,10 @@
         }
 
         function closeOrder() {
-            document.getElementById('orderModal').classList.remove('open');
+            const modal = document.getElementById('orderModal');
+            if (modal) {
+                modal.classList.remove('open');
+            }
         }
 
         function submitOrder() {
@@ -246,8 +254,13 @@
         }
 
         // Close modal on overlay click
-        document.getElementById('orderModal').addEventListener('click', function(e) {
-            if (e.target === this) closeOrder();
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('orderModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) closeOrder();
+                });
+            }
         });
 
         // Initial render
