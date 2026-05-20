@@ -208,9 +208,41 @@
         }
 
         function submitOrder() {
+            // Gather form data
+            const orderName = document.getElementById('orderItemName').textContent.trim();
+            const orderCat = document.getElementById('orderItemCat').textContent.trim();
+            const firstName = document.querySelector('#orderFormInner input[placeholder="Marie"]').value.trim();
+            const lastName = document.querySelector('#orderFormInner input[placeholder="Dupont"]').value.trim();
+            const phone = document.querySelector('#orderFormInner input[placeholder="+509 xxxx xxxx"]').value.trim();
+            const date = document.querySelector('#orderFormInner input[type="date"]').value;
+            const qty = document.querySelector('#orderFormInner input[type="number"]').value;
+            const details = document.querySelector('#orderFormInner textarea').value.trim();
+
+            // Build WhatsApp message
+            let message = `Nouvelle commande Dane's Kitchen & Event:\n`;
+            message += `Article: ${orderName}\n`;
+            if (orderCat) message += `Catégorie/Prix: ${orderCat}\n`;
+            message += `Prénom: ${firstName || '(non fourni)'}\n`;
+            message += `Nom: ${lastName || '(non fourni)'}\n`;
+            message += `Téléphone/WhatsApp: ${phone || '(non fourni)'}\n`;
+            if (date) message += `Date souhaitée: ${date}\n`;
+            message += `Quantité: ${qty || '1'}\n`;
+            if (details) message += `Détails/personnalisation: ${details}\n`;
+
+            // Business WhatsApp number (from footer link)
+            const businessNumber = '50933315722';
+            const whatsappUrl = `https://wa.me/${businessNumber}?text=${encodeURIComponent(message)}`;
+
+            // Debug: Log the URL to check if it's formed correctly
+            console.log('WhatsApp URL:', whatsappUrl);
+
+            // Show success message briefly then redirect to WhatsApp
             document.getElementById('orderFormInner').style.display = 'none';
             document.getElementById('orderSuccess').classList.add('show');
-            setTimeout(closeOrder, 2000);
+            setTimeout(() => {
+                console.log('Redirecting to:', whatsappUrl);
+                window.location.href = whatsappUrl;
+            }, 1500);
         }
 
         // Close modal on overlay click
